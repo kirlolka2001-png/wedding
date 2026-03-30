@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Свадьба Кирилла и Полины</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Cormorant Garamond', serif;
+
+/* бумага */
+
+background:
+radial-gradient(circle at 20% 20%, rgba(0,0,0,0.04), transparent 60%),
+radial-gradient(circle at 80% 70%, rgba(0,0,0,0.04), transparent 60%),
+#f4eadf;
+
+color:#3a2f2a;
+
+line-height:1.6;
+
+}
+
+/* винтажная бумага */
+
+.paper{
+
+max-width:650px;
+margin:auto;
+
+background:#fbf4ea;
+
+box-shadow:
+0 0 40px rgba(0,0,0,0.08),
+inset 0 0 40px rgba(0,0,0,0.05);
+
+padding:40px 20px;
+
+position:relative;
+
+}
+
+/* края бумаги */
+
+.paper:before,
+.paper:after{
+
+content:"";
+
+position:absolute;
+left:0;
+right:0;
+height:30px;
+
+background:linear-gradient(to bottom,rgba(0,0,0,0.08),transparent);
+
+}
+
+.paper:before{
+top:0;
+}
+
+.paper:after{
+bottom:0;
+transform:rotate(180deg);
+}
+
+/* цветочная рамка */
+
+.flower-frame{
+
+width:100%;
+margin:10px 0 30px 0;
+
+opacity:0.9;
+
+}
+
+/* HERO */
+
+.hero{
+
+text-align:center;
+padding:40px 10px;
+
+}
+
+/* names */
+
+.names{
+
+font-family:'Great Vibes', cursive;
+
+font-size:54px;
+
+color:#5b3e36;
+
+margin-bottom:10px;
+
+}
+
+/* date */
+
+.date{
+
+font-size:20px;
+letter-spacing:1px;
+
+}
+
+/* divider */
+
+.divider{
+
+width:100px;
+height:1px;
+background:#c9b5a6;
+
+margin:25px auto;
+
+}
+
+/* timer */
+
+.timer{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+
+gap:10px;
+margin-top:12px;
+
+}
+
+.timer div{
+
+background:#fffdfb;
+padding:8px 12px;
+border-radius:6px;
+
+font-size:18px;
+
+}
+
+/* ornament */
+
+.flower-ornament{
+
+text-align:center;
+font-size:26px;
+
+margin:40px 0;
+
+color:#b79c87;
+
+}
+
+/* sections */
+
+section{
+
+text-align:center;
+padding:40px 10px;
+
+}
+
+h2{
+
+font-size:28px;
+margin-bottom:20px;
+font-weight:400;
+
+}
+
+/* timeline */
+
+.timeline div{
+
+display:flex;
+justify-content:space-between;
+
+border-bottom:1px solid #d8c8bb;
+
+padding:10px 0;
+
+font-size:18px;
+
+}
+
+/* map */
+
+.map{
+
+height:300px;
+border-radius:10px;
+overflow:hidden;
+
+margin-top:20px;
+
+}
+
+/* invitation */
+
+.invite{
+
+font-size:20px;
+max-width:420px;
+margin:auto;
+
+}
+
+/* mobile */
+
+@media (max-width:600px){
+
+.names{font-size:42px;}
+
+.paper{
+padding:30px 16px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="paper">
+
+<!-- цветочная рамка -->
+
+<svg class="flower-frame" viewBox="0 0 500 80">
+
+<path d="M10 40 Q50 10 90 40 T170 40 T250 40 T330 40 T410 40 T490 40"
+stroke="#c8a99b"
+stroke-width="3"
+fill="none"/>
+
+<circle cx="90" cy="40" r="6" fill="#d8b8a8"/>
+<circle cx="250" cy="40" r="6" fill="#d8b8a8"/>
+<circle cx="410" cy="40" r="6" fill="#d8b8a8"/>
+
+</svg>
+
+
+<div class="hero">
+
+<div class="names">
+Кирилл & Полина
+</div>
+
+<div class="date">
+Вторник • 26 мая 2026
+</div>
+
+<div class="divider"></div>
+
+<div>
+До торжества осталось
+</div>
+
+<div class="timer">
+
+<div><span id="days"></span> д</div>
+<div><span id="hours"></span> ч</div>
+<div><span id="minutes"></span> м</div>
+<div><span id="seconds"></span> с</div>
+
+</div>
+
+</div>
+
+<div class="flower-ornament">
+❦ ❧ ❦
+</div>
+
+<section>
+
+<h2>Приглашение</h2>
+
+<div class="invite">
+
+Дорогие <span id="guestName">Алексей и Юлия</span>,  
+мы будем счастливы разделить с вами день нашей свадьбы  
+и надеемся увидеть вас вместе с Марией и Андреем среди наших гостей.
+
+</div>
+
+</section>
+
+
+<div class="flower-ornament">
+❦ ❧ ❦
+</div>
+
+
+<section>
+
+<h2>Программа дня</h2>
+
+<div class="timeline">
+
+<div>
+<span>13:00</span>
+<span>Сбор гостей</span>
+</div>
+
+<div>
+<span>13:30</span>
+<span>Церемония</span>
+</div>
+
+<div>
+<span>14:30</span>
+<span>Банкет</span>
+</div>
+
+</div>
+
+</section>
+
+
+<div class="flower-ornament">
+❦ ❧ ❦
+</div>
+
+
+<section>
+
+<h2>Место проведения</h2>
+
+<div>
+ЛОКАЦИЯ 1: ЗАГС №2 (Советский проспект, 39)<br>
+ЛОКАЦИЯ 2: ресторан Матрешка (улица Гоголя, 45)
+</div>
+
+<div class="map">
+
+<iframe
+src="https://yandex.ru/map-widget/v1/?rtext=Вологодская+область+Череповец+Советский+проспект+39~Вологодская+область+Череповец+улица+Гоголя+45&rtt=auto"
+width="100%"
+height="100%"
+frameborder="0">
+</iframe>
+
+</div>
+
+</section>
+
+
+<div class="flower-ornament">
+❦ ❧ ❦
+</div>
+
+
+
+</div>
+
+
+<script>
+
+const wedding = new Date("May 26 2026 14:00:00").getTime()
+
+function updateTimer(){
+
+const now = new Date().getTime()
+const diff = wedding - now
+
+const days = Math.floor(diff/(1000*60*60*24))
+const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60))
+const minutes = Math.floor((diff%(1000*60*60))/(1000*60))
+const seconds = Math.floor((diff%(1000*60))/1000)
+
+document.getElementById("days").innerText = days
+document.getElementById("hours").innerText = hours
+document.getElementById("minutes").innerText = minutes
+document.getElementById("seconds").innerText = seconds
+
+}
+
+setInterval(updateTimer,1000)
+updateTimer()
+
+const params = new URLSearchParams(window.location.search)
+const guest = params.get("guest")
+
+if(guest){
+document.getElementById("guestName").innerText = guest
+}
+
+</script>
+
+</body>
+</html>
