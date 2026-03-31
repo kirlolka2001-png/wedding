@@ -144,12 +144,25 @@ font-family:'Great Vibes', cursive;
 font-size:54px;
 
 color:#c9b5a6;
-
 margin-bottom:10px;
-
 text-shadow:
 0 2px 10px rgba(0,0,0,0.6),
 0 0 25px rgba(255,255,255,0.4);
+
+display:flex;
+flex-direction:column;
+align-items:center;
+line-height:1.05;
+gap:6px;
+}
+.names span:first-child,
+.names span:last-child{
+font-size:50px;
+}
+
+.names span:nth-child(2){
+font-size:26px;
+}
 
 }
 /* date */
@@ -290,7 +303,9 @@ padding:30px 16px;
 </div>
 <div class="hero">
 <div class="names">
-Кирилл &amp; Полина
+  <span>Кирилл</span>
+  <span>&amp;</span>
+  <span>Полина</span>
 </div>
 <br>
 </br>
